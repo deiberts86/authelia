@@ -1,0 +1,2 @@
+helm install authelia authelia/authelia --create-namespace --namespace authelia --values authelia-values.yaml
+helm upgrade authelia authelia/authelia -n authelia --values authelia-values.yaml
