@@ -8,4 +8,4 @@ annotations:
   nginx.ingress.kubernetes.io/auth-snippet: |
     proxy_set_header X-Forwarded-Method $request_method;
 
-## NOTE THIS FOR TESTING.  The goal is to NOT have this exposed as your website that you want to protect should be proxied to the authelia pod for its request.
+## You still need an Authelia Ingress but you need to ensure that these additional annotations should only be used on other ingresses that needs protection.
