@@ -1,0 +1,11 @@
+# ANNOTATE ONLY THE INGRESS YOU WANT TO PROTECT.  NOT AUTHELIA THE INGRESS!!!
+## YOU NEED TO HAVE SNIPPETS ALLOWED ON YOUR INGRESS; Doesn't work natively with rke2-nginx-ingress as it's disabled by default.
+annotations:
+  nginx.ingress.kubernetes.io/auth-method: GET
+  nginx.ingress.kubernetes.io/auth-url: http://authelia.authelia.svc.cluster.local/api/verify
+  nginx.ingress.kubernetes.io/auth-signin: https://auth.deiberts.domain.com?rm=$request_method
+  nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
+  nginx.ingress.kubernetes.io/auth-snippet: |
+    proxy_set_header X-Forwarded-Method $request_method;
+
+## NOTE THIS FOR TESTING.  The goal is to NOT have this exposed as your website that you want to protect should be proxied to the authelia pod for its request.

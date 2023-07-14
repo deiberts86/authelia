@@ -13,9 +13,6 @@ ingress:
   annotations:
     cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
     kubernetes.io/tls-acme: "true"
-    #nginx.ingress.kubernetes.io/auth-url: http://authelia.authelia.svc.cluster.local/api/verify
-    nginx.ingress.kubernetes.io/auth-signin: https://auth.deiberts.domain
-    nginx.ingress.kubernetes.io/auth-response-headers: Remote-User,Remote-Name,Remote-Groups,Remote-Email
   rewriteTarget: true
   subdomain: auth
   ## The Ingress Class Name.
