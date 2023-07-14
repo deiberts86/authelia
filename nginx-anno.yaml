@@ -1,4 +1,4 @@
-# ANNOTATE ONLY THE INGRESS YOU WANT TO PROTECT.  NOT AUTHELIA THE INGRESS!!!
+# ANNOTATE ONLY THE INGRESS YOU WANT TO PROTECT.  NOT THE AUTHELIA INGRESS!!!
 ## YOU NEED TO HAVE SNIPPETS ALLOWED ON YOUR INGRESS; Doesn't work natively with rke2-nginx-ingress as it's disabled by default.
 annotations:
   nginx.ingress.kubernetes.io/auth-method: GET
